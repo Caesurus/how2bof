@@ -53,7 +53,9 @@ When a function is called, it will push the argument to the stack and then call 
 Upon entering the function it will allocate stack space to use in that function. Since the stack grows from high addresses towards low addresses the stack will look like this at the time we really start executing the C code in the `func` function:
 ```
 -------------------------
-0x1ac   overflowme
+ Lower Stack Addresses
+-------------------------
+0x1ac   overflowme       <---- The location we're writing to with gets()
 ...
 0x1c8   end of overflowme
 .
@@ -61,7 +63,9 @@ Upon entering the function it will allocate stack space to use in that function.
 .
 .
 0x1dc   Return Pointer
-0x1e0   key
+0x1e0   key              <---- Location we're trying to overwrite
+-------------------------
+ Higher Stack Addresses
 -------------------------
 ```
 So overflowing `overflowme` will allow us to eventually overwrite the value of `key`. If this doesn't quite 'click' at the moment, just proceed and see if it makes sense as you do the next steps.
