@@ -20,13 +20,9 @@ if __name__ == "__main__":
 
   parser = argparse.ArgumentParser(description='Exploit the bins.')
   parser.add_argument('--dbg'   , '-d', action="store_true")
-  parser.add_argument('--remote', '-r', action="store_true")
   args = parser.parse_args()
 
-  if args.remote:
-    r = remote('pwnable.kr', 9000)
-  else:
-    r = process('./bof')
+  r = process('./bof')
 
   if args.dbg:
     gdb.attach(r, """

