@@ -14,6 +14,7 @@ For this challenge there are a couple of things you should know.
 _There is a LOT to learn, and the goal of this page is to walk you through a practical process of solving this challenge. You may not understand all of the finer details, but that will come later on_
 
 So where to start?
+
 First let's install some tools. I would advise running a system with Ubuntu 16.04 (or 14.04)
 
 Install: [pwntools](https://github.com/Gallopsled/pwntools) please head over there and look up how to install this excellent python module.
@@ -310,12 +311,13 @@ We also see that the very next instruction is:
 
 `=> 0x56651654 <func+40>:        cmp    DWORD PTR [ebp+0x8],0xcafebabe`
 
-`if(key == 0xcafebabe)`
-
 This is the comparison of `key` to the constant `0xcafebabe`
 
-Great! So let's see what the value of `key` is. 
-**SideNote:** This notation `DWORD PTR [ebp+0x8]` means that the value in memory pointer `ebp+0x8`. 
+`if(key == 0xcafebabe)`
+
+Great! So let's see what the value of `key` is.
+
+**SideNote:** This notation `DWORD PTR [ebp+0x8]` means... the value in memory at address `ebp+0x8`. 
 
 With gdb and PEDA, we can look at this value by doing:
 ```asm
@@ -419,5 +421,5 @@ $ <cntl-d>
 As you can see, we get dropped into an interactive shell and we can enter commands. If we do a `cat flag` we see that the flag is printed out.
 
 Hopefully this has helped someone step through this process for the first time. If you made it this far, congratulations!  
-Now go and play [pwnable.kr](http://pwnable.kr)
+Now go and play bof [pwnable.kr](http://pwnable.kr) and also come back to try out the other buffer overflow levels here.
 
