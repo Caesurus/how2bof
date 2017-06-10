@@ -14,7 +14,7 @@ This challenge requires you to set up the stack correctly to pass arguments to t
 Similar to bof3, but strings won't be as readily available, can you still get shell?
 
 ---
-Essential Tools:
+## Essential Tools:
 
 [pwntools](https://github.com/Gallopsled/pwntools). Please head over there and look up how to install this excellent python module.
 
