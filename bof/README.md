@@ -9,7 +9,8 @@ For this challenge there are a couple of things you should know.
  * When I first started playing pwnable.kr, it took me several days to solve this. So don't get discouraged.
  * A lot of information out there talks about overwriting the return pointer on the stack (don't worry if this doesn't make any sense at the moment). That is not the goal of this challenge
  * It's OK to watch a walkthrough as long as you walk away understanding WHY/HOW the challenge was solved.
- * [Excellent video walkthrough](https://www.youtube.com/watch?v=BxSD0cSjyNg&t=13s), But it still may be a bit impractical.
+ * [Video walkthrough](https://www.youtube.com/watch?v=BxSD0cSjyNg&t=13s), But it still may be a bit impractical.
+ * [Excellent Video on this topic](https://www.youtube.com/watch?v=T03idxny9jE). All his videos are great, highly recommend his channel.
 
 _There is a LOT to learn, and the goal of this page is to walk you through a practical process of solving this challenge. You may not understand all of the finer details, but that will come later on_
 
