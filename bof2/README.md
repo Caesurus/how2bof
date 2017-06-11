@@ -36,8 +36,16 @@ Steps to solve:
 Time to look at an example.
 
 ## 1) Overflow the buffer with easily identifiable input
+We will do this the same way as the previous challenge. The [step1.py](./step1.py) script is set up to execute and attach a debugger.
+
+Relevant code in the script:
+```python
+  payload  = cyclic(100)
+  r.sendline(payload)
+```
 
 ## 2) Locate the offset of the return pointer
+Execute [step1.py -d](./step1.py) to start the script with the debugger attached.
 
 ## 3) Find _where_ to redirect code execution
 
