@@ -24,3 +24,6 @@ It is also recommended that you use something to make the use of GDB a bit 'frie
 I would recommend using one of the following:
  - [pwndbg](https://github.com/pwndbg/pwndbg)
  - [PEDA](https://github.com/longld/peda)
+
+After putting these challenges together I found: https://github.com/bert88sta/how2exploit_binary
+Take a look at his repo and very similar information there (plus more) ;)
