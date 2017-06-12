@@ -15,6 +15,9 @@ This challenge requires you to set up the stack correctly to pass arguments to t
 ### [Level 4](./bof4)
 Similar to bof3, but strings won't be as readily available, can you still get shell?
 
+### [Level 5](./bof5)
+Introduction into ASLR, and using return to libc (ret2libc) for popping a shell.
+
 ---
 ## Essential Tools:
 
