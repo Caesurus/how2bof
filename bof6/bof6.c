@@ -1,4 +1,4 @@
-// $ gcc -fstack-protector -Wl,-z,relro,-z,now -m32 bof6.c -o bof6
+// $ gcc -g -fstack-protector-all -Wl,-z,relro,-z,now -m32 bof6.c -o bof6
 // Relevant paper: https://www.exploit-db.com/docs/28553.pdf
 
 #include <stdio.h>
@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #define BUFSIZE  64
-
 char name[BUFSIZE];
 
 void func(void)
