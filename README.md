@@ -18,6 +18,9 @@ Similar to bof3, but strings won't be as readily available, can you still get sh
 ### [Level 5](./bof5)
 Introduction into ASLR, and using return to libc (ret2libc) for popping a shell.
 
+### [Level 6](./bof6)
+Building on the last level, this introduces the concept of stack cookies/sentinels/guards and requires leaking several values yourself by using [FSB](https://github.com/Caesurus/how2fsb).
+
 ---
 ## Essential Tools:
 
