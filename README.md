@@ -28,8 +28,8 @@ Building on the last level, this introduces the concept of stack cookies/sentine
 
 It is also recommended that you use something to make the use of GDB a bit 'friendlier'.
 I would recommend using one of the following:
+ - [GEF](https://github.com/hugsy/gef)
  - [pwndbg](https://github.com/pwndbg/pwndbg)
- - [PEDA](https://github.com/longld/peda)
 
 After putting these challenges together I found: https://github.com/bert88sta/how2exploit_binary
 Take a look at his repo and very similar information there (plus more) ;)
