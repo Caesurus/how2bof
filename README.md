@@ -1,5 +1,7 @@
 # how2bof
-Guide to buffer overflows, binaries that can be used to practice BufferOverFlows. All these binaries are 32bit. Compiled on Ubuntu 16.04
+Now updated scripts run with python3!
+
+Guide to buffer overflows, binaries that can be used to practice BufferOverFlows. All these binaries are 32bit. Compiled on Ubuntu 16.04 (will update to 20.04 at some point)
 
 You probably arrive here because you're interested in learning to hack. Hopefully this repo contains information that is useful in your pursuit. Another resource I can highly recommend is [LiveOverflow](https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w). He has a real gift for explaining the underlying technical principles.
 

